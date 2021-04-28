@@ -1,0 +1,5 @@
+These samples contain the DBPedia Ontology in various different formats.
+The original data was obtained from the DBPedia Downloads page at: https://wiki.dbpedia.org/Downloads2014
+The data is available under the Creative Commons Attribution-ShareAlike 3.0 Unported license: http://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License
+The ontology was converted to different formats using the RDFSharp serializers, < and > characters were removed from URIs, to account for RDFSharp limitations.
+Occurrences of """" in Turtle file, caused by incorrect handling of trailing " in long literals, were changed to """.

@@ -7,6 +7,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RDFSharp", "RDFSharp\RDFSha
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RDFSharp.Convert", "RDFSharp.Convert\RDFSharp.Convert.csproj", "{6DF53F3B-9BA6-4EBE-81D1-F92719F1E80C}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RDFSharp.Benchmarks", "RDFSharp.Benchmarks\RDFSharp.Benchmarks.csproj", "{77AA1A92-484A-422F-AF2B-C6C48DB05343}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{6DF53F3B-9BA6-4EBE-81D1-F92719F1E80C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6DF53F3B-9BA6-4EBE-81D1-F92719F1E80C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6DF53F3B-9BA6-4EBE-81D1-F92719F1E80C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{77AA1A92-484A-422F-AF2B-C6C48DB05343}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{77AA1A92-484A-422F-AF2B-C6C48DB05343}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{77AA1A92-484A-422F-AF2B-C6C48DB05343}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{77AA1A92-484A-422F-AF2B-C6C48DB05343}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
