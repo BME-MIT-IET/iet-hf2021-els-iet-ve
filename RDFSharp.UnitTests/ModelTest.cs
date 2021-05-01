@@ -12,6 +12,7 @@ namespace RDFSharp.UnitTests
 
         RDFGraph graph;
 
+        #region test methods
         [TestMethod]
         public void TestModelBuilding()
         {
@@ -19,7 +20,7 @@ namespace RDFSharp.UnitTests
             graph = new RDFGraph();
 
             // Act 
-            BuildGraph(graph);
+            BuildGraph(graph, 50);
 
             // Assert
             Assert.AreEqual(50, graph.TriplesCount);
@@ -27,11 +28,11 @@ namespace RDFSharp.UnitTests
         }
 
         [TestMethod]
-        public void TestSerialization()
+        public void TestNTriplesSerialization()
         {
             // Arrange
             graph = new RDFGraph();
-            BuildGraph(graph);
+            BuildGraph(graph, 50);
 
             // Act
             SerializeGraph(graph, RDFModelEnums.RDFFormats.NTriples);
@@ -41,13 +42,78 @@ namespace RDFSharp.UnitTests
             Assert.AreEqual(graph.TriplesCount, newGraph.TriplesCount);
         }
 
-        private void BuildGraph(RDFGraph graph)
+        [TestMethod]
+        public void TestRdfXmlSerialization()
         {
-            RDFResource obj = new RDFResource(string.Concat(RDF.BASE_URI, "example_object"));
-            for (int i = 0; i < 50; i++)
+            // Arrange
+            graph = new RDFGraph();
+            BuildGraph(graph, 50);
+
+            // Act
+            SerializeGraph(graph, RDFModelEnums.RDFFormats.RdfXml);
+            RDFGraph newGraph = DeserializateGraph(RDFModelEnums.RDFFormats.RdfXml);
+
+            // Assert
+            Assert.AreEqual(graph.TriplesCount, newGraph.TriplesCount);
+        }
+
+        [TestMethod]
+        public void TestTriXSerialization()
+        {
+            // Arrange
+            graph = new RDFGraph();
+            BuildGraph(graph, 50);
+
+            // Act
+            SerializeGraph(graph, RDFModelEnums.RDFFormats.TriX);
+            RDFGraph newGraph = DeserializateGraph(RDFModelEnums.RDFFormats.TriX);
+
+            // Assert
+            Assert.AreEqual(graph.TriplesCount, newGraph.TriplesCount);
+        }
+
+        [TestMethod]
+        public void TestTurtleSerialization()
+        {
+            // Arrange
+            graph = new RDFGraph();
+            BuildGraph(graph, 50);
+
+            // Act
+            SerializeGraph(graph, RDFModelEnums.RDFFormats.Turtle);
+            RDFGraph newGraph = DeserializateGraph(RDFModelEnums.RDFFormats.Turtle);
+
+            // Assert
+            Assert.AreEqual(graph.TriplesCount, newGraph.TriplesCount);
+        }
+
+        [TestMethod]
+        public void TestVocabularies()
+        {
+            // Arrange
+            RDFResource actualResource;
+            string baseURI = RDFS.BASE_URI;
+            string name = "label";
+            string expected = baseURI + name;
+
+            // Act
+            actualResource = RDFS.LABEL;
+
+            // Assert
+            Assert.AreEqual(expected, actualResource.ToString());
+        }
+        #endregion
+
+        #region helper methods
+        private void BuildGraph(RDFGraph graph, int count)
+        {
+            RDFResource tempObject1 = new RDFResource(string.Concat(RDF.BASE_URI, "example_object_1"));
+            RDFResource tempObject2 = new RDFResource(string.Concat(RDF.BASE_URI, "example_object_2"));
+            for (int i = 0; i < count; i++)
             {
-                RDFResource tempSubject = new RDFResource(string.Concat(RDF.BASE_URI, "example_subject" + i));
-                graph.AddTriple(new RDFTriple(tempSubject, RDF.TYPE, obj));
+                RDFResource newSubject = new RDFResource(string.Concat(RDF.BASE_URI, "example_subject_" + i));
+                RDFResource newObject = (count < 30) ? tempObject1 : tempObject2;
+                graph.AddTriple(new RDFTriple(newSubject, RDF.TYPE, newObject));
             }
         }
 
@@ -97,5 +163,6 @@ namespace RDFSharp.UnitTests
                 return null;
             }
         }
+        #endregion
     }
 }
