@@ -1,0 +1,383 @@
+// Validating benchmarks:
+// ***** BenchmarkRunner: Start   *****
+// ***** Found 4 benchmark(s) in total *****
+// ***** Building 1 exe(s) in Parallel: Start   *****
+// start dotnet restore  /p:UseSharedCompilation=false /p:BuildInParallel=false /m:1 in E:\intelltech\RDFSharp\RDFSharp.Benchmarks\bin\Release\net5.0\c439ee89-be26-4cd2-b7a7-5aa8b83d94f2
+// command took 1.87s and exited with 0
+// start dotnet build -c Release  --no-restore /p:UseSharedCompilation=false /p:BuildInParallel=false /m:1 in E:\intelltech\RDFSharp\RDFSharp.Benchmarks\bin\Release\net5.0\c439ee89-be26-4cd2-b7a7-5aa8b83d94f2
+// command took 14.86s and exited with 1
+// start dotnet build -c Release  --no-restore --no-dependencies /p:UseSharedCompilation=false /p:BuildInParallel=false /m:1 in E:\intelltech\RDFSharp\RDFSharp.Benchmarks\bin\Release\net5.0\c439ee89-be26-4cd2-b7a7-5aa8b83d94f2
+// command took 2.65s and exited with 0
+// ***** Done, took 00:00:19 (19.5 sec)   *****
+// Found 4 benchmarks:
+//   SerializerReadBenchmark.Read: DefaultJob [InputFile=(Samples/dbpediaNTriples.zip, NTriples)]
+//   SerializerReadBenchmark.Read: DefaultJob [InputFile=(Samples/dbpediaRdfXml.zip, RdfXml)]
+//   SerializerReadBenchmark.Read: DefaultJob [InputFile=(Samples/dbpediaTriX.zip, TriX)]
+//   SerializerReadBenchmark.Read: DefaultJob [InputFile=(Samples/dbpediaTurtle.zip, Turtle)]
+
+// **************************
+// Benchmark: SerializerReadBenchmark.Read: DefaultJob [InputFile=(Samples/dbpediaNTriples.zip, NTriples)]
+// *** Execute ***
+// Launch: 1 / 1
+// Execute: dotnet "c439ee89-be26-4cd2-b7a7-5aa8b83d94f2.dll" --benchmarkName "RDFSharp.Benchmarks.SerializerReadBenchmark.Read(InputFile: (Samples/dbpediaNTriples.zip, NTriples))" --job "Default" --benchmarkId 0 in E:\intelltech\RDFSharp\RDFSharp.Benchmarks\bin\Release\net5.0\c439ee89-be26-4cd2-b7a7-5aa8b83d94f2\bin\Release\netcoreapp5.0
+// BeforeAnythingElse
+
+// Benchmark Process Environment Information:
+// Runtime=.NET Core 5.0.4 (CoreCLR 5.0.421.11614, CoreFX 5.0.421.11614), X64 RyuJIT
+// GC=Concurrent Workstation
+// Job: DefaultJob
+
+OverheadJitting  1: 1 op, 277500.00 ns, 277.5000 us/op
+WorkloadJitting  1: 1 op, 557131900.00 ns, 557.1319 ms/op
+
+WorkloadWarmup   1: 1 op, 410525400.00 ns, 410.5254 ms/op
+WorkloadWarmup   2: 1 op, 392368000.00 ns, 392.3680 ms/op
+WorkloadWarmup   3: 1 op, 408678500.00 ns, 408.6785 ms/op
+WorkloadWarmup   4: 1 op, 399553200.00 ns, 399.5532 ms/op
+WorkloadWarmup   5: 1 op, 413481300.00 ns, 413.4813 ms/op
+WorkloadWarmup   6: 1 op, 392659600.00 ns, 392.6596 ms/op
+
+// BeforeActualRun
+WorkloadActual   1: 1 op, 402454800.00 ns, 402.4548 ms/op
+WorkloadActual   2: 1 op, 387002500.00 ns, 387.0025 ms/op
+WorkloadActual   3: 1 op, 399497100.00 ns, 399.4971 ms/op
+WorkloadActual   4: 1 op, 408357100.00 ns, 408.3571 ms/op
+WorkloadActual   5: 1 op, 400781700.00 ns, 400.7817 ms/op
+WorkloadActual   6: 1 op, 394696300.00 ns, 394.6963 ms/op
+WorkloadActual   7: 1 op, 395674500.00 ns, 395.6745 ms/op
+WorkloadActual   8: 1 op, 414247200.00 ns, 414.2472 ms/op
+WorkloadActual   9: 1 op, 403822800.00 ns, 403.8228 ms/op
+WorkloadActual  10: 1 op, 403972000.00 ns, 403.9720 ms/op
+WorkloadActual  11: 1 op, 414593100.00 ns, 414.5931 ms/op
+WorkloadActual  12: 1 op, 408719600.00 ns, 408.7196 ms/op
+WorkloadActual  13: 1 op, 409649700.00 ns, 409.6497 ms/op
+WorkloadActual  14: 1 op, 418220700.00 ns, 418.2207 ms/op
+WorkloadActual  15: 1 op, 397670900.00 ns, 397.6709 ms/op
+WorkloadActual  16: 1 op, 395951200.00 ns, 395.9512 ms/op
+WorkloadActual  17: 1 op, 396047600.00 ns, 396.0476 ms/op
+WorkloadActual  18: 1 op, 432116500.00 ns, 432.1165 ms/op
+WorkloadActual  19: 1 op, 398660900.00 ns, 398.6609 ms/op
+
+// AfterActualRun
+WorkloadResult   1: 1 op, 402454800.00 ns, 402.4548 ms/op
+WorkloadResult   2: 1 op, 387002500.00 ns, 387.0025 ms/op
+WorkloadResult   3: 1 op, 399497100.00 ns, 399.4971 ms/op
+WorkloadResult   4: 1 op, 408357100.00 ns, 408.3571 ms/op
+WorkloadResult   5: 1 op, 400781700.00 ns, 400.7817 ms/op
+WorkloadResult   6: 1 op, 394696300.00 ns, 394.6963 ms/op
+WorkloadResult   7: 1 op, 395674500.00 ns, 395.6745 ms/op
+WorkloadResult   8: 1 op, 414247200.00 ns, 414.2472 ms/op
+WorkloadResult   9: 1 op, 403822800.00 ns, 403.8228 ms/op
+WorkloadResult  10: 1 op, 403972000.00 ns, 403.9720 ms/op
+WorkloadResult  11: 1 op, 414593100.00 ns, 414.5931 ms/op
+WorkloadResult  12: 1 op, 408719600.00 ns, 408.7196 ms/op
+WorkloadResult  13: 1 op, 409649700.00 ns, 409.6497 ms/op
+WorkloadResult  14: 1 op, 418220700.00 ns, 418.2207 ms/op
+WorkloadResult  15: 1 op, 397670900.00 ns, 397.6709 ms/op
+WorkloadResult  16: 1 op, 395951200.00 ns, 395.9512 ms/op
+WorkloadResult  17: 1 op, 396047600.00 ns, 396.0476 ms/op
+WorkloadResult  18: 1 op, 398660900.00 ns, 398.6609 ms/op
+
+// AfterAll
+// Benchmark Process 9392 has exited with code 0
+
+Mean = 402.779 ms, StdErr = 1.930 ms (0.48%), N = 18, StdDev = 8.190 ms
+Min = 387.002 ms, Q1 = 396.453 ms, Median = 401.618 ms, Q3 = 408.629 ms, Max = 418.221 ms
+IQR = 12.176 ms, LowerFence = 378.190 ms, UpperFence = 426.892 ms
+ConfidenceInterval = [395.125 ms; 410.433 ms] (CI 99.9%), Margin = 7.654 ms (1.90% of Mean)
+Skewness = 0.19, Kurtosis = 2.13, MValue = 2
+
+// **************************
+// Benchmark: SerializerReadBenchmark.Read: DefaultJob [InputFile=(Samples/dbpediaRdfXml.zip, RdfXml)]
+// *** Execute ***
+// Launch: 1 / 1
+// Execute: dotnet "c439ee89-be26-4cd2-b7a7-5aa8b83d94f2.dll" --benchmarkName "RDFSharp.Benchmarks.SerializerReadBenchmark.Read(InputFile: (Samples/dbpediaRdfXml.zip, RdfXml))" --job "Default" --benchmarkId 1 in E:\intelltech\RDFSharp\RDFSharp.Benchmarks\bin\Release\net5.0\c439ee89-be26-4cd2-b7a7-5aa8b83d94f2\bin\Release\netcoreapp5.0
+// BeforeAnythingElse
+
+// Benchmark Process Environment Information:
+// Runtime=.NET Core 5.0.4 (CoreCLR 5.0.421.11614, CoreFX 5.0.421.11614), X64 RyuJIT
+// GC=Concurrent Workstation
+// Job: DefaultJob
+
+OverheadJitting  1: 1 op, 243500.00 ns, 243.5000 us/op
+WorkloadJitting  1: 1 op, 407953000.00 ns, 407.9530 ms/op
+
+WorkloadWarmup   1: 1 op, 308902700.00 ns, 308.9027 ms/op
+WorkloadWarmup   2: 1 op, 275529100.00 ns, 275.5291 ms/op
+WorkloadWarmup   3: 1 op, 284713800.00 ns, 284.7138 ms/op
+WorkloadWarmup   4: 1 op, 291153300.00 ns, 291.1533 ms/op
+WorkloadWarmup   5: 1 op, 286912600.00 ns, 286.9126 ms/op
+WorkloadWarmup   6: 1 op, 291671200.00 ns, 291.6712 ms/op
+WorkloadWarmup   7: 1 op, 283828800.00 ns, 283.8288 ms/op
+
+// BeforeActualRun
+WorkloadActual   1: 1 op, 289197100.00 ns, 289.1971 ms/op
+WorkloadActual   2: 1 op, 285797300.00 ns, 285.7973 ms/op
+WorkloadActual   3: 1 op, 280783700.00 ns, 280.7837 ms/op
+WorkloadActual   4: 1 op, 285739200.00 ns, 285.7392 ms/op
+WorkloadActual   5: 1 op, 288668300.00 ns, 288.6683 ms/op
+WorkloadActual   6: 1 op, 289275200.00 ns, 289.2752 ms/op
+WorkloadActual   7: 1 op, 287051800.00 ns, 287.0518 ms/op
+WorkloadActual   8: 1 op, 288472500.00 ns, 288.4725 ms/op
+WorkloadActual   9: 1 op, 285328400.00 ns, 285.3284 ms/op
+WorkloadActual  10: 1 op, 287004300.00 ns, 287.0043 ms/op
+WorkloadActual  11: 1 op, 291546400.00 ns, 291.5464 ms/op
+WorkloadActual  12: 1 op, 288517900.00 ns, 288.5179 ms/op
+WorkloadActual  13: 1 op, 289133800.00 ns, 289.1338 ms/op
+WorkloadActual  14: 1 op, 292510700.00 ns, 292.5107 ms/op
+WorkloadActual  15: 1 op, 286709700.00 ns, 286.7097 ms/op
+
+// AfterActualRun
+WorkloadResult   1: 1 op, 289197100.00 ns, 289.1971 ms/op
+WorkloadResult   2: 1 op, 285797300.00 ns, 285.7973 ms/op
+WorkloadResult   3: 1 op, 280783700.00 ns, 280.7837 ms/op
+WorkloadResult   4: 1 op, 285739200.00 ns, 285.7392 ms/op
+WorkloadResult   5: 1 op, 288668300.00 ns, 288.6683 ms/op
+WorkloadResult   6: 1 op, 289275200.00 ns, 289.2752 ms/op
+WorkloadResult   7: 1 op, 287051800.00 ns, 287.0518 ms/op
+WorkloadResult   8: 1 op, 288472500.00 ns, 288.4725 ms/op
+WorkloadResult   9: 1 op, 285328400.00 ns, 285.3284 ms/op
+WorkloadResult  10: 1 op, 287004300.00 ns, 287.0043 ms/op
+WorkloadResult  11: 1 op, 291546400.00 ns, 291.5464 ms/op
+WorkloadResult  12: 1 op, 288517900.00 ns, 288.5179 ms/op
+WorkloadResult  13: 1 op, 289133800.00 ns, 289.1338 ms/op
+WorkloadResult  14: 1 op, 292510700.00 ns, 292.5107 ms/op
+WorkloadResult  15: 1 op, 286709700.00 ns, 286.7097 ms/op
+
+// AfterAll
+// Benchmark Process 15408 has exited with code 0
+
+Mean = 287.716 ms, StdErr = 0.723 ms (0.25%), N = 15, StdDev = 2.800 ms
+Min = 280.784 ms, Q1 = 286.253 ms, Median = 288.473 ms, Q3 = 289.165 ms, Max = 292.511 ms
+IQR = 2.912 ms, LowerFence = 281.886 ms, UpperFence = 293.533 ms
+ConfidenceInterval = [284.723 ms; 290.709 ms] (CI 99.9%), Margin = 2.993 ms (1.04% of Mean)
+Skewness = -0.56, Kurtosis = 3.4, MValue = 2
+
+// **************************
+// Benchmark: SerializerReadBenchmark.Read: DefaultJob [InputFile=(Samples/dbpediaTriX.zip, TriX)]
+// *** Execute ***
+// Launch: 1 / 1
+// Execute: dotnet "c439ee89-be26-4cd2-b7a7-5aa8b83d94f2.dll" --benchmarkName "RDFSharp.Benchmarks.SerializerReadBenchmark.Read(InputFile: (Samples/dbpediaTriX.zip, TriX))" --job "Default" --benchmarkId 2 in E:\intelltech\RDFSharp\RDFSharp.Benchmarks\bin\Release\net5.0\c439ee89-be26-4cd2-b7a7-5aa8b83d94f2\bin\Release\netcoreapp5.0
+// BeforeAnythingElse
+
+// Benchmark Process Environment Information:
+// Runtime=.NET Core 5.0.4 (CoreCLR 5.0.421.11614, CoreFX 5.0.421.11614), X64 RyuJIT
+// GC=Concurrent Workstation
+// Job: DefaultJob
+
+OverheadJitting  1: 1 op, 242200.00 ns, 242.2000 us/op
+WorkloadJitting  1: 1 op, 447192200.00 ns, 447.1922 ms/op
+
+WorkloadWarmup   1: 1 op, 329706400.00 ns, 329.7064 ms/op
+WorkloadWarmup   2: 1 op, 315908300.00 ns, 315.9083 ms/op
+WorkloadWarmup   3: 1 op, 310207500.00 ns, 310.2075 ms/op
+WorkloadWarmup   4: 1 op, 306138800.00 ns, 306.1388 ms/op
+WorkloadWarmup   5: 1 op, 308340300.00 ns, 308.3403 ms/op
+WorkloadWarmup   6: 1 op, 312854200.00 ns, 312.8542 ms/op
+WorkloadWarmup   7: 1 op, 307833600.00 ns, 307.8336 ms/op
+WorkloadWarmup   8: 1 op, 310358800.00 ns, 310.3588 ms/op
+WorkloadWarmup   9: 1 op, 304847100.00 ns, 304.8471 ms/op
+
+// BeforeActualRun
+WorkloadActual   1: 1 op, 305152300.00 ns, 305.1523 ms/op
+WorkloadActual   2: 1 op, 306893000.00 ns, 306.8930 ms/op
+WorkloadActual   3: 1 op, 308853900.00 ns, 308.8539 ms/op
+WorkloadActual   4: 1 op, 301978900.00 ns, 301.9789 ms/op
+WorkloadActual   5: 1 op, 308555700.00 ns, 308.5557 ms/op
+WorkloadActual   6: 1 op, 306084700.00 ns, 306.0847 ms/op
+WorkloadActual   7: 1 op, 313442900.00 ns, 313.4429 ms/op
+WorkloadActual   8: 1 op, 304520400.00 ns, 304.5204 ms/op
+WorkloadActual   9: 1 op, 310705900.00 ns, 310.7059 ms/op
+WorkloadActual  10: 1 op, 307055300.00 ns, 307.0553 ms/op
+WorkloadActual  11: 1 op, 313026500.00 ns, 313.0265 ms/op
+WorkloadActual  12: 1 op, 307341400.00 ns, 307.3414 ms/op
+WorkloadActual  13: 1 op, 305991700.00 ns, 305.9917 ms/op
+WorkloadActual  14: 1 op, 314405500.00 ns, 314.4055 ms/op
+WorkloadActual  15: 1 op, 305800400.00 ns, 305.8004 ms/op
+
+// AfterActualRun
+WorkloadResult   1: 1 op, 305152300.00 ns, 305.1523 ms/op
+WorkloadResult   2: 1 op, 306893000.00 ns, 306.8930 ms/op
+WorkloadResult   3: 1 op, 308853900.00 ns, 308.8539 ms/op
+WorkloadResult   4: 1 op, 301978900.00 ns, 301.9789 ms/op
+WorkloadResult   5: 1 op, 308555700.00 ns, 308.5557 ms/op
+WorkloadResult   6: 1 op, 306084700.00 ns, 306.0847 ms/op
+WorkloadResult   7: 1 op, 313442900.00 ns, 313.4429 ms/op
+WorkloadResult   8: 1 op, 304520400.00 ns, 304.5204 ms/op
+WorkloadResult   9: 1 op, 310705900.00 ns, 310.7059 ms/op
+WorkloadResult  10: 1 op, 307055300.00 ns, 307.0553 ms/op
+WorkloadResult  11: 1 op, 313026500.00 ns, 313.0265 ms/op
+WorkloadResult  12: 1 op, 307341400.00 ns, 307.3414 ms/op
+WorkloadResult  13: 1 op, 305991700.00 ns, 305.9917 ms/op
+WorkloadResult  14: 1 op, 314405500.00 ns, 314.4055 ms/op
+WorkloadResult  15: 1 op, 305800400.00 ns, 305.8004 ms/op
+
+// AfterAll
+// Benchmark Process 25904 has exited with code 0
+
+Mean = 307.987 ms, StdErr = 0.915 ms (0.30%), N = 15, StdDev = 3.544 ms
+Min = 301.979 ms, Q1 = 305.896 ms, Median = 307.055 ms, Q3 = 309.780 ms, Max = 314.406 ms
+IQR = 3.884 ms, LowerFence = 300.070 ms, UpperFence = 315.606 ms
+ConfidenceInterval = [304.198 ms; 311.776 ms] (CI 99.9%), Margin = 3.789 ms (1.23% of Mean)
+Skewness = 0.4, Kurtosis = 2.05, MValue = 2
+
+// **************************
+// Benchmark: SerializerReadBenchmark.Read: DefaultJob [InputFile=(Samples/dbpediaTurtle.zip, Turtle)]
+// *** Execute ***
+// Launch: 1 / 1
+// Execute: dotnet "c439ee89-be26-4cd2-b7a7-5aa8b83d94f2.dll" --benchmarkName "RDFSharp.Benchmarks.SerializerReadBenchmark.Read(InputFile: (Samples/dbpediaTurtle.zip, Turtle))" --job "Default" --benchmarkId 3 in E:\intelltech\RDFSharp\RDFSharp.Benchmarks\bin\Release\net5.0\c439ee89-be26-4cd2-b7a7-5aa8b83d94f2\bin\Release\netcoreapp5.0
+// BeforeAnythingElse
+
+// Benchmark Process Environment Information:
+// Runtime=.NET Core 5.0.4 (CoreCLR 5.0.421.11614, CoreFX 5.0.421.11614), X64 RyuJIT
+// GC=Concurrent Workstation
+// Job: DefaultJob
+
+OverheadJitting  1: 1 op, 247400.00 ns, 247.4000 us/op
+WorkloadJitting  1: 1 op, 564176800.00 ns, 564.1768 ms/op
+
+WorkloadWarmup   1: 1 op, 412952800.00 ns, 412.9528 ms/op
+WorkloadWarmup   2: 1 op, 430305000.00 ns, 430.3050 ms/op
+WorkloadWarmup   3: 1 op, 430519900.00 ns, 430.5199 ms/op
+WorkloadWarmup   4: 1 op, 431653700.00 ns, 431.6537 ms/op
+WorkloadWarmup   5: 1 op, 420487100.00 ns, 420.4871 ms/op
+WorkloadWarmup   6: 1 op, 404003600.00 ns, 404.0036 ms/op
+WorkloadWarmup   7: 1 op, 422259200.00 ns, 422.2592 ms/op
+WorkloadWarmup   8: 1 op, 418787200.00 ns, 418.7872 ms/op
+
+// BeforeActualRun
+WorkloadActual   1: 1 op, 416705600.00 ns, 416.7056 ms/op
+WorkloadActual   2: 1 op, 417602100.00 ns, 417.6021 ms/op
+WorkloadActual   3: 1 op, 435479400.00 ns, 435.4794 ms/op
+WorkloadActual   4: 1 op, 427376300.00 ns, 427.3763 ms/op
+WorkloadActual   5: 1 op, 424759900.00 ns, 424.7599 ms/op
+WorkloadActual   6: 1 op, 415977200.00 ns, 415.9772 ms/op
+WorkloadActual   7: 1 op, 420684600.00 ns, 420.6846 ms/op
+WorkloadActual   8: 1 op, 422625800.00 ns, 422.6258 ms/op
+WorkloadActual   9: 1 op, 418958500.00 ns, 418.9585 ms/op
+WorkloadActual  10: 1 op, 415964600.00 ns, 415.9646 ms/op
+WorkloadActual  11: 1 op, 407561700.00 ns, 407.5617 ms/op
+WorkloadActual  12: 1 op, 413917000.00 ns, 413.9170 ms/op
+WorkloadActual  13: 1 op, 422173900.00 ns, 422.1739 ms/op
+WorkloadActual  14: 1 op, 422054100.00 ns, 422.0541 ms/op
+WorkloadActual  15: 1 op, 421372100.00 ns, 421.3721 ms/op
+
+// AfterActualRun
+WorkloadResult   1: 1 op, 416705600.00 ns, 416.7056 ms/op
+WorkloadResult   2: 1 op, 417602100.00 ns, 417.6021 ms/op
+WorkloadResult   3: 1 op, 427376300.00 ns, 427.3763 ms/op
+WorkloadResult   4: 1 op, 424759900.00 ns, 424.7599 ms/op
+WorkloadResult   5: 1 op, 415977200.00 ns, 415.9772 ms/op
+WorkloadResult   6: 1 op, 420684600.00 ns, 420.6846 ms/op
+WorkloadResult   7: 1 op, 422625800.00 ns, 422.6258 ms/op
+WorkloadResult   8: 1 op, 418958500.00 ns, 418.9585 ms/op
+WorkloadResult   9: 1 op, 415964600.00 ns, 415.9646 ms/op
+WorkloadResult  10: 1 op, 407561700.00 ns, 407.5617 ms/op
+WorkloadResult  11: 1 op, 413917000.00 ns, 413.9170 ms/op
+WorkloadResult  12: 1 op, 422173900.00 ns, 422.1739 ms/op
+WorkloadResult  13: 1 op, 422054100.00 ns, 422.0541 ms/op
+WorkloadResult  14: 1 op, 421372100.00 ns, 421.3721 ms/op
+
+// AfterAll
+// Benchmark Process 5200 has exited with code 0
+
+Mean = 419.124 ms, StdErr = 1.339 ms (0.32%), N = 14, StdDev = 5.011 ms
+Min = 407.562 ms, Q1 = 416.159 ms, Median = 419.822 ms, Q3 = 422.144 ms, Max = 427.376 ms
+IQR = 5.985 ms, LowerFence = 407.182 ms, UpperFence = 431.121 ms
+ConfidenceInterval = [413.472 ms; 424.776 ms] (CI 99.9%), Margin = 5.652 ms (1.35% of Mean)
+Skewness = -0.52, Kurtosis = 2.81, MValue = 2
+
+// ***** BenchmarkRunner: Finish  *****
+
+// * Export *
+  BenchmarkDotNet.Artifacts\results\RDFSharp.Benchmarks.SerializerReadBenchmark-report.csv
+  BenchmarkDotNet.Artifacts\results\RDFSharp.Benchmarks.SerializerReadBenchmark-report-github.md
+  BenchmarkDotNet.Artifacts\results\RDFSharp.Benchmarks.SerializerReadBenchmark-report.html
+  BenchmarkDotNet.Artifacts\results\RDFSharp.Benchmarks.SerializerReadBenchmark-measurements.csv
+  BenchmarkDotNet.Artifacts\results\BuildPlots.R
+  BenchmarkDotNet.Artifacts\results\*.png
+
+// * Detailed results *
+SerializerReadBenchmark.Read: DefaultJob [InputFile=(Samples/dbpediaNTriples.zip, NTriples)]
+Runtime = .NET Core 5.0.4 (CoreCLR 5.0.421.11614, CoreFX 5.0.421.11614), X64 RyuJIT; GC = Concurrent Workstation
+Mean = 402.779 ms, StdErr = 1.930 ms (0.48%), N = 18, StdDev = 8.190 ms
+Min = 387.002 ms, Q1 = 396.453 ms, Median = 401.618 ms, Q3 = 408.629 ms, Max = 418.221 ms
+IQR = 12.176 ms, LowerFence = 378.190 ms, UpperFence = 426.892 ms
+ConfidenceInterval = [395.125 ms; 410.433 ms] (CI 99.9%), Margin = 7.654 ms (1.90% of Mean)
+Skewness = 0.19, Kurtosis = 2.13, MValue = 2
+-------------------- Histogram --------------------
+[382.901 ms ; 391.104 ms) | @
+[391.104 ms ; 402.677 ms) | @@@@@@@@@
+[402.677 ms ; 420.396 ms) | @@@@@@@@
+---------------------------------------------------
+
+SerializerReadBenchmark.Read: DefaultJob [InputFile=(Samples/dbpediaRdfXml.zip, RdfXml)]
+Runtime = .NET Core 5.0.4 (CoreCLR 5.0.421.11614, CoreFX 5.0.421.11614), X64 RyuJIT; GC = Concurrent Workstation
+Mean = 287.716 ms, StdErr = 0.723 ms (0.25%), N = 15, StdDev = 2.800 ms
+Min = 280.784 ms, Q1 = 286.253 ms, Median = 288.473 ms, Q3 = 289.165 ms, Max = 292.511 ms
+IQR = 2.912 ms, LowerFence = 281.886 ms, UpperFence = 293.533 ms
+ConfidenceInterval = [284.723 ms; 290.709 ms] (CI 99.9%), Margin = 2.993 ms (1.04% of Mean)
+Skewness = -0.56, Kurtosis = 3.4, MValue = 2
+-------------------- Histogram --------------------
+[279.294 ms ; 285.113 ms) | @
+[285.113 ms ; 294.001 ms) | @@@@@@@@@@@@@@
+---------------------------------------------------
+
+SerializerReadBenchmark.Read: DefaultJob [InputFile=(Samples/dbpediaTriX.zip, TriX)]
+Runtime = .NET Core 5.0.4 (CoreCLR 5.0.421.11614, CoreFX 5.0.421.11614), X64 RyuJIT; GC = Concurrent Workstation
+Mean = 307.987 ms, StdErr = 0.915 ms (0.30%), N = 15, StdDev = 3.544 ms
+Min = 301.979 ms, Q1 = 305.896 ms, Median = 307.055 ms, Q3 = 309.780 ms, Max = 314.406 ms
+IQR = 3.884 ms, LowerFence = 300.070 ms, UpperFence = 315.606 ms
+ConfidenceInterval = [304.198 ms; 311.776 ms] (CI 99.9%), Margin = 3.789 ms (1.23% of Mean)
+Skewness = 0.4, Kurtosis = 2.05, MValue = 2
+-------------------- Histogram --------------------
+[300.093 ms ; 316.292 ms) | @@@@@@@@@@@@@@@
+---------------------------------------------------
+
+SerializerReadBenchmark.Read: DefaultJob [InputFile=(Samples/dbpediaTurtle.zip, Turtle)]
+Runtime = .NET Core 5.0.4 (CoreCLR 5.0.421.11614, CoreFX 5.0.421.11614), X64 RyuJIT; GC = Concurrent Workstation
+Mean = 419.124 ms, StdErr = 1.339 ms (0.32%), N = 14, StdDev = 5.011 ms
+Min = 407.562 ms, Q1 = 416.159 ms, Median = 419.822 ms, Q3 = 422.144 ms, Max = 427.376 ms
+IQR = 5.985 ms, LowerFence = 407.182 ms, UpperFence = 431.121 ms
+ConfidenceInterval = [413.472 ms; 424.776 ms] (CI 99.9%), Margin = 5.652 ms (1.35% of Mean)
+Skewness = -0.52, Kurtosis = 2.81, MValue = 2
+-------------------- Histogram --------------------
+[404.833 ms ; 415.913 ms) | @@
+[415.913 ms ; 430.105 ms) | @@@@@@@@@@@@
+---------------------------------------------------
+
+// * Summary *
+
+BenchmarkDotNet=v0.12.1, OS=Windows 10.0.19041.928 (2004/?/20H1)
+Intel Core i5-7600K CPU 3.80GHz (Kaby Lake), 1 CPU, 4 logical and 4 physical cores
+.NET Core SDK=5.0.201
+  [Host]     : .NET Core 5.0.4 (CoreCLR 5.0.421.11614, CoreFX 5.0.421.11614), X64 RyuJIT
+  DefaultJob : .NET Core 5.0.4 (CoreCLR 5.0.421.11614, CoreFX 5.0.421.11614), X64 RyuJIT
+
+
+| Method |                               InputFile |     Mean |   Error |  StdDev |
+|------- |---------------------------------------- |---------:|--------:|--------:|
+|   Read | (Samples/dbpediaNTriples.zip, NTriples) | 402.8 ms | 7.65 ms | 8.19 ms |
+|   Read |     (Samples/dbpediaRdfXml.zip, RdfXml) | 287.7 ms | 2.99 ms | 2.80 ms |
+|   Read |         (Samples/dbpediaTriX.zip, TriX) | 308.0 ms | 3.79 ms | 3.54 ms |
+|   Read |     (Samples/dbpediaTurtle.zip, Turtle) | 419.1 ms | 5.65 ms | 5.01 ms |
+
+// * Hints *
+Outliers
+  SerializerReadBenchmark.Read: Default -> 1 outlier  was  removed (432.12 ms)
+  SerializerReadBenchmark.Read: Default -> 1 outlier  was  detected (280.78 ms)
+  SerializerReadBenchmark.Read: Default -> 1 outlier  was  removed (435.48 ms)
+
+// * Legends *
+  InputFile : Value of the 'InputFile' parameter
+  Mean      : Arithmetic mean of all measurements
+  Error     : Half of 99.9% confidence interval
+  StdDev    : Standard deviation of all measurements
+  1 ms      : 1 Millisecond (0.001 sec)
+
+// ***** BenchmarkRunner: End *****
+// ** Remained 0 benchmark(s) to run **
+Run time: 00:00:43 (43.29 sec), executed benchmarks: 4
+
+Global total time: 00:01:02 (62.8 sec), executed benchmarks: 4
+// * Artifacts cleanup *

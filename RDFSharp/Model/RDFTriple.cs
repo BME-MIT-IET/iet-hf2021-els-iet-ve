@@ -52,10 +52,12 @@ namespace RDFSharp.Model
         /// </summary>
         public RDFPatternMember Object { get; internal set; }
 
+        private readonly Lazy<RDFResource> reificationSubject;
+
         /// <summary>
         /// Subject of the triple's reification
         /// </summary>
-        public RDFResource ReificationSubject { get; internal set; }
+        public RDFResource ReificationSubject => reificationSubject.Value;
         #endregion
 
         #region Ctors
@@ -91,7 +93,7 @@ namespace RDFSharp.Model
             this.TripleID = RDFModelUtilities.CreateHash(this.ToString());
 
             //ReificationSubject
-            this.ReificationSubject = new RDFResource(string.Concat("bnode:", this.TripleID.ToString()));
+            this.reificationSubject = new Lazy<RDFResource>(() => new RDFResource(string.Concat("bnode:", this.TripleID.ToString())));
         }
 
         /// <summary>
@@ -126,7 +128,7 @@ namespace RDFSharp.Model
             this.TripleID = RDFModelUtilities.CreateHash(this.ToString());
 
             //ReificationSubject
-            this.ReificationSubject = new RDFResource(string.Concat("bnode:", this.TripleID.ToString()));
+            this.reificationSubject = new Lazy<RDFResource>(() => new RDFResource(string.Concat("bnode:", this.TripleID.ToString())));
         }
         #endregion
 
