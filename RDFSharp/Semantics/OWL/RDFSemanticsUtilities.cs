@@ -29,7 +29,7 @@ namespace RDFSharp.Semantics.OWL
     /// </summary>
     internal static class RDFSemanticsUtilities
     {
-        internal static Regex NumberRegex = new Regex(@"^[0-9]+$", RegexOptions.Compiled);
+        private static readonly Regex NumberRegex = new Regex(@"^[0-9]+$", RegexOptions.Compiled);
 
         #region Convert
         /// <summary>
