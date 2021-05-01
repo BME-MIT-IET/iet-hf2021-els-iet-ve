@@ -56,6 +56,8 @@ https://github.com/BME-MIT-IET/iet-hf2021-els-iet-ve/blob/1d8b3f151de5fb85fbd752
 
 Ez egy valódi hiba. Jelen állapotában a `try` blokk így nem szolgál semmilyen célt. Lehetséges, hogy `finally` helyett valamilyen kivételt kellett volna itt elkapni és lenyelni (`catch(Exception) { }`), ám ez sem egy ajánlott művelet...
 
+Hiba javítva: https://github.com/BME-MIT-IET/iet-hf2021-els-iet-ve/commit/4ec91baf35c411813380146d671c7cb5013b368d
+
 ## S112 'System.Exception' should not be thrown by user code.
 
 Ez sok helyen megjelenik a kódban. Exception típusú kivételeket nem illik közvetlenül dobni, mert így a felhasználó kód nem tud specifikusan egy hibára szűrni. Az Exception leszármazottjainak használta ajánlott. Ennek ellenére ez a probléma sok projektben megjelenik.
@@ -96,6 +98,8 @@ https://github.com/BME-MIT-IET/iet-hf2021-els-iet-ve/blob/1d8b3f151de5fb85fbd752
 
 Ez valószínűleg diagnosztikai célt szolgált. Ki kéne törölni.
 
+Hiba javítva: https://github.com/BME-MIT-IET/iet-hf2021-els-iet-ve/commit/63db3c91ad78f3d03dbe07b1a018600d0777cf11
+
 ## S1481 Remove the unused local variable.
 
 https://github.com/BME-MIT-IET/iet-hf2021-els-iet-ve/blob/1d8b3f151de5fb85fbd752dc2119453585f68647/RDFSharp/Model/Serializers/RDFXml.cs#L217
@@ -132,11 +136,15 @@ https://github.com/BME-MIT-IET/iet-hf2021-els-iet-ve/blob/1d8b3f151de5fb85fbd752
 
 Ennek a kódrészletnek a célja, hogy ellenőrizze a dátumok formátumát és eltávolítsa az időzóna információkat. Itt nagyon sok a kódismétlés, érdemes lenne bevezetni egy dátum ellenőrző segédfüggvényt, vagy legalább összevonni az egyező törzsű `if` párokat.
 
+Hiba javítva: https://github.com/BME-MIT-IET/iet-hf2021-els-iet-ve/commit/2a016d8dd8f2991ef9235717a0748d339be2c2fb
+
 ## S2223 Change the visibility of 'NumberRegex' or make it 'const' or 'readonly'.
 
 https://github.com/BME-MIT-IET/iet-hf2021-els-iet-ve/blob/1d8b3f151de5fb85fbd752dc2119453585f68647/RDFSharp/Semantics/OWL/RDFSemanticsUtilities.cs#L32
 
 A változó `readonly` és `private` kéne, hogy legyen. Csak ez az osztály fér hozzá, és csak olvasás céljából.
+
+Hiba javítva: https://github.com/BME-MIT-IET/iet-hf2021-els-iet-ve/commit/cbed3d939cfc670074a7d09092b1f0a3ac46f335
 
 ## S2234 Parameters to 'CheckIsTransitiveAssertionOf' have the same names but not the same order as the method arguments.
 
@@ -167,6 +175,8 @@ Ezt általában érdemes kikapcsolni, mert így a program sérülékeny lehet XM
 ## S2953 Either implement 'IDisposable.Dispose', or totally rename this method to prevent confusion.
 
 Az `RDFOntologyPropertyModel` helyesen implementálja a Dispose mintát, ám valamiért nem származik az `IDisposable` interfészből. Ez valószínűleg véletlenül maradt le.
+
+Hiba javítva: https://github.com/BME-MIT-IET/iet-hf2021-els-iet-ve/commit/4df292250e4a78ff8bcc2bb4023f883e577052a3
 
 Az IDisposable interfész implementációja a könyvtárban kicsit furcsa, hiszen sehol sem kezel unmanaged erőforrásokat. A Dispose itt csak arra szolgál, hogy kiürítse az osztályban található listákat. Nem tudom megállapítani, hogy ennek milyen haszna lehet, a témáról szóló issue-t úgy tűnik törölték:
 
