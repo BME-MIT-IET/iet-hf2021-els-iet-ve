@@ -777,144 +777,30 @@ namespace RDFSharp.Model
 
                 #region DATETIME CATEGORY
                 case RDFModelEnums.RDFDatatypes.XSD_DATETIME:
-                    DateTime parsedDateTime;
-                    if (DateTime.TryParseExact(typedLiteral.Value, "yyyy-MM-ddTHH:mm:ss", CultureInfo.InvariantCulture, DateTimeStyles.AdjustToUniversal, out parsedDateTime))
-                    {
-                        typedLiteral.Value = parsedDateTime.ToString("yyyy-MM-ddTHH:mm:ss", CultureInfo.InvariantCulture);
-                        return true;
-                    }
-                    else if (DateTime.TryParseExact(typedLiteral.Value, "yyyy-MM-ddTHH:mm:ssK", CultureInfo.InvariantCulture, DateTimeStyles.AdjustToUniversal, out parsedDateTime))
-                    {
-                        typedLiteral.Value = parsedDateTime.ToString("yyyy-MM-ddTHH:mm:ss", CultureInfo.InvariantCulture);
-                        return true;
-                    }
-                    else if (DateTime.TryParseExact(typedLiteral.Value, "yyyy-MM-ddTHH:mm:ss.FFFFFFF", CultureInfo.InvariantCulture, DateTimeStyles.AdjustToUniversal, out parsedDateTime))
-                    {
-                        typedLiteral.Value = parsedDateTime.ToString("yyyy-MM-ddTHH:mm:ss.FFFFFFF", CultureInfo.InvariantCulture);
-                        return true;
-                    }
-                    else if (DateTime.TryParseExact(typedLiteral.Value, "yyyy-MM-ddTHH:mm:ss.FFFFFFFK", CultureInfo.InvariantCulture, DateTimeStyles.AdjustToUniversal, out parsedDateTime))
-                    {
-                        typedLiteral.Value = parsedDateTime.ToString("yyyy-MM-ddTHH:mm:ss.FFFFFFF", CultureInfo.InvariantCulture);
-                        return true;
-                    } 
-                    else
-                        return false;
+                    return CheckAndFixDateTypedLiteral(typedLiteral, "yyyy-MM-ddTHH:mm:ss", "yyyy-MM-ddTHH:mm:ssK") ||
+                           CheckAndFixDateTypedLiteral(typedLiteral, "yyyy-MM-ddTHH:mm:ss.FFFFFFF", "yyyy-MM-ddTHH:mm:ss.FFFFFFFK");
 
                 case RDFModelEnums.RDFDatatypes.XSD_DATE:
-                    DateTime parsedDate;
-                    if (DateTime.TryParseExact(typedLiteral.Value, "yyyy-MM-dd", CultureInfo.InvariantCulture, DateTimeStyles.AdjustToUniversal, out parsedDate))
-                    {
-                        typedLiteral.Value = parsedDate.ToString("yyyy-MM-dd", CultureInfo.InvariantCulture);
-                        return true;
-                    }
-                    else if (DateTime.TryParseExact(typedLiteral.Value, "yyyy-MM-ddK", CultureInfo.InvariantCulture, DateTimeStyles.AdjustToUniversal, out parsedDate))
-                    {
-                        typedLiteral.Value = parsedDate.ToString("yyyy-MM-dd", CultureInfo.InvariantCulture);
-                        return true;
-                    }
-                    else
-                        return false;
+                    return CheckAndFixDateTypedLiteral(typedLiteral, "yyyy-MM-dd", "yyyy-MM-ddK");
 
                 case RDFModelEnums.RDFDatatypes.XSD_TIME:
-                    DateTime parsedTime;
-                    if (DateTime.TryParseExact(typedLiteral.Value, "HH:mm:ss", CultureInfo.InvariantCulture, DateTimeStyles.AdjustToUniversal, out parsedTime))
-                    {
-                        typedLiteral.Value = parsedTime.ToString("HH:mm:ss", CultureInfo.InvariantCulture);
-                        return true;
-                    }
-                    else if (DateTime.TryParseExact(typedLiteral.Value, "HH:mm:ssK", CultureInfo.InvariantCulture, DateTimeStyles.AdjustToUniversal, out parsedTime))
-                    {
-                        typedLiteral.Value = parsedTime.ToString("HH:mm:ss", CultureInfo.InvariantCulture);
-                        return true;
-                    }
-                    else if (DateTime.TryParseExact(typedLiteral.Value, "HH:mm:ss.FFFFFFF", CultureInfo.InvariantCulture, DateTimeStyles.AdjustToUniversal, out parsedTime))
-                    {
-                        typedLiteral.Value = parsedTime.ToString("HH:mm:ss.FFFFFFF", CultureInfo.InvariantCulture);
-                        return true;
-                    }
-                    else if (DateTime.TryParseExact(typedLiteral.Value, "HH:mm:ss.FFFFFFFK", CultureInfo.InvariantCulture, DateTimeStyles.AdjustToUniversal, out parsedTime))
-                    {
-                        typedLiteral.Value = parsedTime.ToString("HH:mm:ss.FFFFFFF", CultureInfo.InvariantCulture);
-                        return true;
-                    }
-                    else
-                        return false;
+                    return CheckAndFixDateTypedLiteral(typedLiteral, "HH:mm:ss", "HH:mm:ssK") ||
+                           CheckAndFixDateTypedLiteral(typedLiteral, "HH:mm:ss.FFFFFFF", "HH:mm:ss.FFFFFFFK");
 
                 case RDFModelEnums.RDFDatatypes.XSD_GMONTHDAY:
-                    DateTime parsedGMonthDay;
-                    if (DateTime.TryParseExact(typedLiteral.Value, "--MM-dd", CultureInfo.InvariantCulture, DateTimeStyles.AdjustToUniversal, out parsedGMonthDay))
-                    {
-                        typedLiteral.Value = parsedGMonthDay.ToString("--MM-dd", CultureInfo.InvariantCulture);
-                        return true;
-                    }
-                    else if (DateTime.TryParseExact(typedLiteral.Value, "--MM-ddK", CultureInfo.InvariantCulture, DateTimeStyles.AdjustToUniversal, out parsedGMonthDay))
-                    {
-                        typedLiteral.Value = parsedGMonthDay.ToString("--MM-dd", CultureInfo.InvariantCulture);
-                        return true;
-                    }
-                    else
-                        return false;
+                    return CheckAndFixDateTypedLiteral(typedLiteral, "--MM-dd", "--MM-ddK");
 
                 case RDFModelEnums.RDFDatatypes.XSD_GYEARMONTH:
-                    DateTime parsedGYearMonth;
-                    if (DateTime.TryParseExact(typedLiteral.Value, "yyyy-MM", CultureInfo.InvariantCulture, DateTimeStyles.AdjustToUniversal, out parsedGYearMonth))
-                    {
-                        typedLiteral.Value = parsedGYearMonth.ToString("yyyy-MM", CultureInfo.InvariantCulture);
-                        return true;
-                    }
-                    else if (DateTime.TryParseExact(typedLiteral.Value, "yyyy-MMK", CultureInfo.InvariantCulture, DateTimeStyles.AdjustToUniversal, out parsedGYearMonth))
-                    {
-                        typedLiteral.Value = parsedGYearMonth.ToString("yyyy-MM", CultureInfo.InvariantCulture);
-                        return true;
-                    }
-                    else
-                        return false;
+                    return CheckAndFixDateTypedLiteral(typedLiteral, "yyyy-MM", "yyyy-MMK");
 
                 case RDFModelEnums.RDFDatatypes.XSD_GYEAR:
-                    DateTime parsedGYear;
-                    if (DateTime.TryParseExact(typedLiteral.Value, "yyyy", CultureInfo.InvariantCulture, DateTimeStyles.AdjustToUniversal, out parsedGYear))
-                    {
-                        typedLiteral.Value = parsedGYear.ToString("yyyy", CultureInfo.InvariantCulture);
-                        return true;
-                    }
-                    else if (DateTime.TryParseExact(typedLiteral.Value, "yyyyK", CultureInfo.InvariantCulture, DateTimeStyles.AdjustToUniversal, out parsedGYear))
-                    {
-                        typedLiteral.Value = parsedGYear.ToString("yyyy", CultureInfo.InvariantCulture);
-                        return true;
-                    }
-                    else
-                        return false;
+                    return CheckAndFixDateTypedLiteral(typedLiteral, "yyyy", "yyyyK");
 
                 case RDFModelEnums.RDFDatatypes.XSD_GMONTH:
-                    DateTime parsedGMonth;
-                    if (DateTime.TryParseExact(typedLiteral.Value, "MM", CultureInfo.InvariantCulture, DateTimeStyles.AdjustToUniversal, out parsedGMonth))
-                    {
-                        typedLiteral.Value = parsedGMonth.ToString("MM", CultureInfo.InvariantCulture);
-                        return true;
-                    }
-                    else if (DateTime.TryParseExact(typedLiteral.Value, "MMK", CultureInfo.InvariantCulture, DateTimeStyles.AdjustToUniversal, out parsedGMonth))
-                    {
-                        typedLiteral.Value = parsedGMonth.ToString("MM", CultureInfo.InvariantCulture);
-                        return true;
-                    }
-                    else
-                        return false;
+                    return CheckAndFixDateTypedLiteral(typedLiteral, "MM", "MMK");
 
                 case RDFModelEnums.RDFDatatypes.XSD_GDAY:
-                    DateTime parsedGDay;
-                    if (DateTime.TryParseExact(typedLiteral.Value, "dd", CultureInfo.InvariantCulture, DateTimeStyles.AdjustToUniversal, out parsedGDay))
-                    {
-                        typedLiteral.Value = parsedGDay.ToString("dd", CultureInfo.InvariantCulture);
-                        return true;
-                    }
-                    else if (DateTime.TryParseExact(typedLiteral.Value, "ddK", CultureInfo.InvariantCulture, DateTimeStyles.AdjustToUniversal, out parsedGDay))
-                    {
-                        typedLiteral.Value = parsedGDay.ToString("dd", CultureInfo.InvariantCulture);
-                        return true;
-                    }
-                    else
-                        return false;
+                    return CheckAndFixDateTypedLiteral(typedLiteral, "dd", "ddK");
                 #endregion
 
                 #region TIMESPAN CATEGORY
@@ -1089,6 +975,20 @@ namespace RDFSharp.Model
                     return false;
                 #endregion
             }
+        }
+
+        internal static bool CheckAndFixDateTypedLiteral(RDFTypedLiteral typedLiteral, string format, string formatWithTimeZone)
+        {
+            DateTime parsedDateTime;
+
+            if (DateTime.TryParseExact(typedLiteral.Value, format, CultureInfo.InvariantCulture, DateTimeStyles.AdjustToUniversal, out parsedDateTime) ||
+                DateTime.TryParseExact(typedLiteral.Value, formatWithTimeZone, CultureInfo.InvariantCulture, DateTimeStyles.AdjustToUniversal, out parsedDateTime))
+            {
+                typedLiteral.Value = parsedDateTime.ToString(format, CultureInfo.InvariantCulture);
+                return true;
+            }
+
+            return false;
         }
         #endregion
 
