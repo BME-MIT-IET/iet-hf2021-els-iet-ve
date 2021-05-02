@@ -1544,15 +1544,11 @@ namespace RDFSharp.Semantics.OWL
                     //Iterate the compatible assertions and track the occurrence informations
                     foreach (var assertion in restrictionAssertions.Where(x => x.TaxonomyObject.IsLiteral()))
                     {
-                        try
+                        var literalsCompare = RDFQueryUtilities.CompareRDFPatternMembers(hasValueRestriction.RequiredValue.Value, assertion.TaxonomyObject.Value);
+                        if (literalsCompare == 0)
                         {
-                            var literalsCompare = RDFQueryUtilities.CompareRDFPatternMembers(hasValueRestriction.RequiredValue.Value, assertion.TaxonomyObject.Value);
-                            if (literalsCompare == 0)
-                            {
-                                result.AddFact((RDFOntologyFact)assertion.TaxonomySubject);
-                            }
+                            result.AddFact((RDFOntologyFact)assertion.TaxonomySubject);
                         }
-                        finally { }
                     }
 
                 }

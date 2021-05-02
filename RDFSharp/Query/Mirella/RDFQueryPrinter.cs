@@ -903,7 +903,7 @@ namespace RDFSharp.Query
                 result.Append(string.Concat("  ", spaces, "OPTIONAL {\n"));
                 spaces = string.Concat(spaces, "  ");
             }
-            //result.Append("  " + spaces + "#" + patternGroup.PatternGroupName + "\n");
+
             result.Append(string.Concat(spaces, "  {\n"));
             #endregion
 
