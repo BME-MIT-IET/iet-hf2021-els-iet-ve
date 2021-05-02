@@ -1,8 +1,8 @@
-# Feladat: Egységtesztek készítése, kódlefedettség mérése
+# Egységtesztek készítése, kódlefedettség mérése
 
 A feladatban készítettünk egy adag tesztet, és lemértük, hogy az eredeti projekt mekkora részét tudtuk vele lefedni.
 
-A teszteléshez a standard UnitTest-et használtuk, a kód lefedettségének méréséhez pedig a [ReportGenerator](https://github.com/danielpalme/ReportGenerator)-t használtuk.
+A teszteléshez a standard UnitTest-et, a kód lefedettségének méréséhez pedig a [ReportGenerator](https://github.com/danielpalme/ReportGenerator)-t használtuk.
 
 ![](./pictures/unit_test_coverage_report.png)
 
