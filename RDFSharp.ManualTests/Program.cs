@@ -15,7 +15,6 @@ namespace RDFSharp.ManualTests
             Console.InputEncoding = System.Text.Encoding.Unicode;
             Console.OutputEncoding = System.Text.Encoding.Unicode;
 
-            //http://localhost:8080/rdf4j-server/repositories/szepmuveszeti
             var endpoint = GetSPARQLEndpoint();
             MainLoop(endpoint);
         }
