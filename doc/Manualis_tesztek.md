@@ -1,6 +1,6 @@
 # Feladat: Manuális tesztek készítése (példa alkalmazás)
 
-A feladat során készítettünk egy példa alkalmazást, aminek a segítségével példa query-ket lefuttatni egy SPARQL endpoint-on, így egy általános képet kaphatunk a query-k és endpoint-ok használatáról.\
+A feladat során készítettünk egy példa alkalmazást, aminek a segítségével példa query-ket lehet lefuttatni egy SPARQL endpoint-on, így egy általános képet kaphatunk a query-k és endpoint-ok használatáról.\
 A query-ket érdemes egymás után futtatni, mivel egy adott query épít az előtte lévőkre.
 
 ## Alkalmazás használata
@@ -91,3 +91,9 @@ Ennél az opciónál az SPARQL query 0-tól indexelődik, az alkalmazásban lév
 `  ?actorAppellation rdf:type ecrm:E82_Actor_Appellation.`\
 `  ?actorAppellation ecrm:P3_has_note ?actorName;`\
 `} ORDER BY (?actorName) LIMIT 1  OFFSET #ALKOTÓ SORSZÁMA#`
+
+## Az alkalmazás futás közben
+
+A program futására látható itt egy példa a tárgy során megismert szépművészeti adatbázist használva:
+
+![](./pictures/manual_test_example.png)
