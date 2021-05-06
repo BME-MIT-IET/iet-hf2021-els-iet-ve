@@ -107,13 +107,18 @@ namespace RDFSharp.UnitTests
         #region helper methods
         private void BuildGraph(RDFGraph graph, int count)
         {
+            RDFResource newSubject = new RDFResource(string.Concat(RDF.BASE_URI, "example_subject_0"));
             RDFResource tempObject1 = new RDFResource(string.Concat(RDF.BASE_URI, "example_object_1"));
             RDFResource tempObject2 = new RDFResource(string.Concat(RDF.BASE_URI, "example_object_2"));
             for (int i = 0; i < count; i++)
             {
-                RDFResource newSubject = new RDFResource(string.Concat(RDF.BASE_URI, "example_subject_" + i));
-                RDFResource newObject = (count < 30) ? tempObject1 : tempObject2;
-                graph.AddTriple(new RDFTriple(newSubject, RDF.TYPE, newObject));
+                if (i % 4 == 0)
+                {
+                    newSubject = new RDFResource(string.Concat(RDF.BASE_URI, "example_subject_" + i / 4));
+                }
+                RDFResource newPred = (i % 4 < 2) ? RDF.TYPE : RDF.VALUE;
+                RDFResource newObject = (i % 2 == 0) ? tempObject1 : tempObject2;
+                graph.AddTriple(new RDFTriple(newSubject, newPred, newObject));
             }
         }
 

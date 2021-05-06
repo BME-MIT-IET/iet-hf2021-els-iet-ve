@@ -70,14 +70,14 @@ namespace RDFSharp.Model
 
                     #region linq
                     //Group the graph's triples by subj and pred
-                    var groupedList = (from triple in graph
+                    var triplesGroupedBySubjPred = (from triple in graph
                                        orderby triple.Subject.ToString(), triple.Predicate.ToString()
                                        group triple by new
                                        {
                                            subj = triple.Subject.ToString(),
                                            pred = triple.Predicate.ToString()
                                        });
-                    var groupedListLast = groupedList.LastOrDefault();
+                    var lastTriplesWithSameSubjAndPred = triplesGroupedBySubjPred.LastOrDefault();
                     #endregion
 
                     #region triples
@@ -89,23 +89,23 @@ namespace RDFSharp.Model
                     StringBuilder result = new StringBuilder();
 
                     //Iterate over the calculated groups
-                    foreach (var group in groupedList)
+                    foreach (var triplesWithSameSubjAndPred in triplesGroupedBySubjPred)
                     {
-                        var groupLast = group.Last();
+                        var lastTripleWithSamePred = triplesWithSameSubjAndPred.Last();
 
                         #region subj
                         //Reset the flag of subj printing for the new iteration
                         bool subjPrint = false;
                         //New subj found: write the finished Turtle token to the file, then start collecting the new one
-                        if (!actualSubj.Equals(group.Key.subj, StringComparison.Ordinal))
+                        if (!actualSubj.Equals(triplesWithSameSubjAndPred.Key.subj, StringComparison.Ordinal))
                         {
                             if (result.Length > 0)
                             {
-                                result.Replace(";", ".", result.Length - 4, 1);
+                                result.Replace(";", ".", result.Length - 4, 2);
                                 sw.Write(result.ToString());
                                 result.Remove(0, result.Length - 1);
                             }
-                            actualSubj = group.Key.subj;
+                            actualSubj = triplesWithSameSubjAndPred.Key.subj;
                             actualPred = string.Empty;
                             if (!actualSubj.StartsWith("_:"))
                             {
@@ -122,7 +122,7 @@ namespace RDFSharp.Model
 
                         #region predObjList
                         //Iterate over the triples of the current group
-                        foreach (var triple in group)
+                        foreach (var triple in triplesWithSameSubjAndPred)
                         {
 
                             #region pred
@@ -190,7 +190,7 @@ namespace RDFSharp.Model
 
                             #region continuation goody
                             //Then append the appropriated Turtle continuation goody ("," or ";")
-                            if (!triple.Equals(groupLast))
+                            if (!triple.Equals(lastTripleWithSamePred))
                                 result.Append(", ");
                             else
                                 result.AppendLine("; ");
@@ -201,9 +201,9 @@ namespace RDFSharp.Model
 
                         #region last group
                         //This is only for the last group, which is not written into the cycle as the others
-                        if (group.Key.Equals(groupedListLast.Key))
+                        if (triplesWithSameSubjAndPred.Key.Equals(lastTriplesWithSameSubjAndPred.Key))
                         {
-                            result.Replace(";", ".", result.Length - 4, 1);
+                            result.Replace(";", ".", result.Length - 4, 2);
                             sw.Write(result.ToString());
                         }
                         #endregion
@@ -362,7 +362,7 @@ namespace RDFSharp.Model
         /// </summary>
         private static string GetTurtleContextCoordinates(Dictionary<string, object> turtleContext)
             => string.Concat("[POSITION:", turtleContext["POSITION"], "]");
-        
+
         /// <summary>
         /// Updates the position of the cursor within Turtle context
         /// </summary>
