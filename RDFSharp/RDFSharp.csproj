@@ -13,9 +13,9 @@
     <Product>RDFSharp</Product>
     <PackageId>RDFSharp</PackageId>
     <PackageTags>rdf sparql shacl triplestore rdfs owl-dl owl2 ontology skos semantic-web linked-data</PackageTags>
-    <PackageProjectUrl>https://github.com/mdesalvo/RDFSharp</PackageProjectUrl>
+    <PackageProjectUrl>https://github.com/BME-MIT-IET/iet-hf2021-els-iet-ve</PackageProjectUrl>
     <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
-    <RepositoryUrl>https://github.com/mdesalvo/RDFSharp.git</RepositoryUrl>
+    <RepositoryUrl>https://github.com/BME-MIT-IET/iet-hf2021-els-iet-ve</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
     <PublishRepositoryUrl>true</PublishRepositoryUrl>
     <IncludeSymbols>true</IncludeSymbols>
@@ -43,8 +43,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-	<PackageReference Include="System.Data.DataSetExtensions" Version="4.5.0" />
-	<PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.0.0" PrivateAssets="All" />
+    <PackageReference Include="System.Data.DataSetExtensions" Version="4.5.0" />
+    <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.0.0" PrivateAssets="All" />
   </ItemGroup>
 
 </Project>
