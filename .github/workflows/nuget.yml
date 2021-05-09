@@ -34,6 +34,14 @@ jobs:
       packages: write
       contents: read  
     steps:
+      - uses: actions/checkout@v2
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v1
+        with:
+          dotnet-version: 5.0.x
+          source-url: https://nuget.pkg.github.com/iet-hf2021-els-iet-ve/index.json
+        env:
+            NUGET_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
       - name: Build
         run: dotnet build --configuration Release
       - name: Create the package
