@@ -16,7 +16,7 @@ jobs:
       uses: actions/setup-dotnet@v1
       with:
         dotnet-version: 5.0.x
-        source-url: https://nuget.pkg.github.com/BME-MIT-IET/index.json
+        source-url: https://nuget.pkg.github.com/nemethdani/index.json
       env:
           NUGET_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
     - name: Restore dependencies
@@ -41,7 +41,7 @@ jobs:
             NUGET_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
         with:
           dotnet-version: 5.0.x
-          source-url: https://nuget.pkg.github.com/BME-MIT-IET/index.json
+          source-url: https://nuget.pkg.github.com/nemethdani/index.json
         
       - name: Build
         run: dotnet build --configuration Release
