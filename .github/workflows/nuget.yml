@@ -40,11 +40,12 @@ jobs:
         with:
           dotnet-version: 5.0.x
           source-url: https://nuget.pkg.github.com/BME-MIT-IET/index.json
-        env:
-            NUGET_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
+        
       - name: Build
         run: dotnet build --configuration Release
       - name: Create the package
         run: dotnet pack --configuration Release
       - name: Publish the package to GPR
+        env:
+            NUGET_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
         run: dotnet nuget push RDFSharp/bin/Release/*.nupkg -k ${NUGET_AUTH_TOKEN}
