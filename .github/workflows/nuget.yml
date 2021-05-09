@@ -22,7 +22,7 @@ jobs:
     - name: Restore dependencies
       run: dotnet restore
     - name: Build
-      run: dotnet build --configuration Release RDFSharp
+      run: dotnet build --no-restore
     - name: Test
       run: dotnet test --no-build --verbosity normal
       
@@ -34,6 +34,8 @@ jobs:
       packages: write
       contents: read  
     steps:
+      - name: Build
+        run: dotnet build --configuration Release RDFSharp
       - name: Create the package
         run: dotnet pack --configuration Release RDFSharp
       - name: Publish the package to GPR
