@@ -1,0 +1,40 @@
+name: .NET
+
+on:
+  push:
+    branches: [ master ]
+
+jobs:
+
+  build_and_test:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: 5.0.x
+        source-url: https://nuget.pkg.github.com/iet-hf2021-els-iet-ve/index.json
+      env:
+          NUGET_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
+    - name: Restore dependencies
+      run: dotnet restore
+    - name: Build
+      run: dotnet build --configuration Release RDFSharp
+    - name: Test
+      run: dotnet test --no-build --verbosity normal
+      
+      
+  deploy:
+    needs: build_and_test
+    runs-on: ubuntu-latest
+    permissions:
+      packages: write
+      contents: read  
+    steps:
+      - name: Create the package
+        run: dotnet pack --configuration Release RDFSharp
+      - name: Publish the package to GPR
+        run: dotnet nuget push RDFSharp/bin/Release/*.nupkg
