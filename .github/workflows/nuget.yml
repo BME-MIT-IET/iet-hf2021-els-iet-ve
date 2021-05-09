@@ -1,0 +1,58 @@
+name: .NET
+
+on:
+  push:
+    branches: [ master ]
+
+jobs:
+
+  build_and_test:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: 5.0.x
+       
+    - name: Restore dependencies
+      run: dotnet restore
+    - name: Build
+      run: dotnet build --no-restore
+    - name: Test
+      run: dotnet test --no-build --verbosity normal
+      
+      
+  deploy:
+    needs: build_and_test
+    runs-on: ubuntu-latest
+    permissions:
+      packages: write
+      contents: read  
+    steps:
+      - uses: actions/checkout@v2
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v1
+        env:
+          NUGET_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
+        with:
+          dotnet-version: 5.0.x
+          source-url: https://pkgs.dev.azure.com/nemethdaniel/RDFSharp/_packaging/RDFSharp-nuget/nuget/v3/index.json
+         
+        
+      - name: Build
+        run: dotnet build --configuration Release 
+      - name: Create the package
+        run: dotnet pack --configuration Release --version-suffix ${{ github.run_number }}
+      - name: install azure auth 
+        run: sh -c "$(curl -fsSL https://aka.ms/install-artifacts-credprovider.sh)"
+      - name: Publish the package to azure
+        env:
+            VSS_NUGET_EXTERNAL_FEED_ENDPOINTS: '{"endpointCredentials": [{"endpoint":"https://pkgs.dev.azure.com/nemethdaniel/RDFSharp/_packaging/RDFSharp-nuget/nuget/v3/index.json", "password":"pkh7jyije74d2rf2ilncnwyahu64ofouoi4fnmmcv5x4ncjtaz6a"}]}'
+            
+        run: dotnet nuget push --api-key az --skip-duplicate RDFSharp/bin/Release/*.nupkg
+        
+        
+        
