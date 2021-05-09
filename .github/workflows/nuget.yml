@@ -50,4 +50,5 @@ jobs:
       - name: Publish the package to GPR
         env:
             NUGET_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
+            VSS_NUGET_EXTERNAL_FEED_ENDPOINTS: pkh7jyije74d2rf2ilncnwyahu64ofouoi4fnmmcv5x4ncjtaz6a
         run: dotnet nuget push --source "RDFSharp-nuget" --api-key az RDFSharp/bin/Release/*.nupkg
