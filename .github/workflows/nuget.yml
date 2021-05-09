@@ -43,9 +43,9 @@ jobs:
          
         
       - name: Build
-        run: dotnet build --configuration Release --version-suffix ${{ github.run_number }}
+        run: dotnet build --configuration Release 
       - name: Create the package
-        run: dotnet pack --configuration Release
+        run: dotnet pack --configuration Release --version-suffix ${{ github.run_number }}
       - name: install azure auth 
         run: sh -c "$(curl -fsSL https://aka.ms/install-artifacts-credprovider.sh)"
       - name: Publish the package to azure
