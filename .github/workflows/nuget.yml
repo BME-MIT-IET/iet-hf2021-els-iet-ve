@@ -52,7 +52,7 @@ jobs:
         env:
             VSS_NUGET_EXTERNAL_FEED_ENDPOINTS: '{"endpointCredentials": [{"endpoint":"https://pkgs.dev.azure.com/nemethdaniel/RDFSharp/_packaging/RDFSharp-nuget/nuget/v3/index.json", "password":"pkh7jyije74d2rf2ilncnwyahu64ofouoi4fnmmcv5x4ncjtaz6a"}]}'
             
-        run: dotnet nuget push --api-key az --skip-duplicate --source RDFSharp/bin/Release/*.nupkg
+        run: dotnet nuget push --api-key az --skip-duplicate RDFSharp/bin/Release/*.nupkg
         
         
         
