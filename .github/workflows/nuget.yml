@@ -51,4 +51,4 @@ jobs:
         env:
             NUGET_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
             VSS_NUGET_EXTERNAL_FEED_ENDPOINTS: pkh7jyije74d2rf2ilncnwyahu64ofouoi4fnmmcv5x4ncjtaz6a
-        run: dotnet nuget push --source "RDFSharp-nuget" RDFSharp/bin/Release/*.nupkg
+        run: dotnet nuget push --source "https://pkgs.dev.azure.com/nemethdaniel/RDFSharp/_packaging/RDFSharp-nuget/nuget/v3/index.json" RDFSharp/bin/Release/*.nupkg
