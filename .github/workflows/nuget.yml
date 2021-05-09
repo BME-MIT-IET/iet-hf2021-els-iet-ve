@@ -35,8 +35,8 @@ jobs:
       contents: read  
     steps:
       - name: Build
-        run: dotnet build --configuration Release RDFSharp
+        run: dotnet build --configuration Release RDFSharp.sln
       - name: Create the package
-        run: dotnet pack --configuration Release RDFSharp
+        run: dotnet pack --configuration Release RDFSharp.sln
       - name: Publish the package to GPR
         run: dotnet nuget push RDFSharp/bin/Release/*.nupkg
