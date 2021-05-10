@@ -1,3 +1,5 @@
+#publish to: https://dev.azure.com/nemethdaniel/RDFSharp/_packaging?_a=feed&feed=RDFSharp-nuget
+
 name: .NET
 
 on:
